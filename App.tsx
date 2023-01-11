@@ -16,6 +16,16 @@ export default function App() {
         you'll see whole day! 🌈
       </p>
       <ToDoApp />
+      <footer>
+        <a href="https://github.com/thejulle/react-todo-app">
+          <img
+            src="https://github.githubassets.com/images/modules/site/icons/footer/github-mark.svg"
+            width="32"
+            height="32"
+            alt="Project repo on GitHub"
+          />
+        </a>
+      </footer>
     </div>
   );
 }
