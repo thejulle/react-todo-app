@@ -36,7 +36,8 @@ function ToDoApp() {
     setInput('');
   }
 
-  function removeToDo(removeToDo) {
+  function removeToDo(event, removeToDo) {
+    event.currentTarget.blur();
     let updatedToDos = toDos.filter((toDo) => toDo !== removeToDo);
     setToDos(updatedToDos);
   }
@@ -53,7 +54,8 @@ function ToDoApp() {
             'deg 100% 80%))',
         }}
       >
-        {todo.text} <button onClick={(e) => removeToDo(todo)}>&times;</button>
+        {todo.text}{' '}
+        <button onClick={(e) => removeToDo(e, todo)}>&times;</button>
       </li>
     );
   });
