@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ToDo() {
+function ToDoApp() {
   const [toDos, setToDos] = React.useState([
     {
       text: 'Learn React.',
@@ -81,4 +81,4 @@ function ToDo() {
   );
 }
 
-export default ToDo;
+export default ToDoApp;
