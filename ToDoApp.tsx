@@ -1,7 +1,13 @@
 import React from 'react';
 
 function ToDoApp() {
-  const [toDos, setToDos] = React.useState([
+  interface ToDo {
+    text: string;
+    gradientDegStart: number;
+    gradientDegEnd: number;
+  }
+
+  const [toDoArray, setToDoArray] = React.useState([
     {
       text: 'Learn React.',
       gradientDegStart: 0,
@@ -26,36 +32,37 @@ function ToDoApp() {
   const [input, setInput] = React.useState('');
 
   function addToDo() {
-    let toDosHelper = toDos;
+    let toDosHelper = toDoArray;
     toDosHelper.push({
       text: input,
       gradientDegStart: Math.floor(Math.random() * 360),
       gradientDegEnd: Math.floor(Math.random() * 360),
     });
-    setToDos(toDosHelper);
+    setToDoArray(toDosHelper);
     setInput('');
   }
 
-  function removeToDo(event, removeToDo) {
+  function removeToDo(event: any, removeToDo: ToDo) {
     event.currentTarget.blur();
-    let updatedToDos = toDos.filter((toDo) => toDo !== removeToDo);
-    setToDos(updatedToDos);
+    let updatedToDos = toDoArray.filter((item: ToDo) => item !== removeToDo);
+    setToDoArray(updatedToDos);
   }
 
-  const toDoList = toDos.map((todo) => {
+  const toDoList = toDoArray.map((toDo: ToDo, index: number) => {
     return (
       <li
+        key={index}
         style={{
           background:
             'linear-gradient(30deg, hsl(' +
-            todo.gradientDegStart +
+            toDo.gradientDegStart +
             'deg 100% 80%), hsl(' +
-            todo.gradientDegEnd +
+            toDo.gradientDegEnd +
             'deg 100% 80%))',
         }}
       >
-        {todo.text}{' '}
-        <button onClick={(e) => removeToDo(e, todo)}>&times;</button>
+        {toDo.text}{' '}
+        <button onClick={(e) => removeToDo(e, toDo)}>&times;</button>
       </li>
     );
   });
