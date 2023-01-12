@@ -79,9 +79,7 @@ function ToDoApp() {
         <input
           type="submit"
           value="Add to-do"
-          onClick={() => {
-            addToDo();
-          }}
+          onClick={addToDo}
           disabled={!textInput}
         ></input>
       </form>
