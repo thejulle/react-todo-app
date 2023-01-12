@@ -38,7 +38,7 @@ function ToDoApp() {
       gradientDegEnd: Math.floor(Math.random() * 360),
     };
 
-    setToDoArray((toDoArray: Array<ToDo>) => [...toDoArray, newToDo]);
+    setToDoArray([...toDoArray, newToDo]);
     setTextInput('');
   }
 
