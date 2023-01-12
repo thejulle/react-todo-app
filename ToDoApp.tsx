@@ -32,7 +32,7 @@ function ToDoApp() {
   const [textInput, setTextInput] = React.useState('');
 
   function addToDo() {
-    let newToDo = {
+    let newToDo: ToDo = {
       text: textInput,
       gradientDegStart: Math.floor(Math.random() * 360),
       gradientDegEnd: Math.floor(Math.random() * 360),
