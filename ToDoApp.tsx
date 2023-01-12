@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 function ToDoApp() {
   interface ToDo {
@@ -29,23 +29,22 @@ function ToDoApp() {
       gradientDegEnd: 270,
     },
   ]);
-  const [input, setInput] = React.useState('');
+  const [textInput, setTextInput] = React.useState('');
 
   function addToDo() {
-    let toDosHelper = toDoArray;
-    toDosHelper.push({
-      text: input,
+    let newToDo = {
+      text: textInput,
       gradientDegStart: Math.floor(Math.random() * 360),
       gradientDegEnd: Math.floor(Math.random() * 360),
-    });
-    setToDoArray(toDosHelper);
-    setInput('');
+    };
+
+    setToDoArray((toDoArray: Array<ToDo>) => [...toDoArray, newToDo]);
+    setTextInput('');
   }
 
   function removeToDo(event: any, removeToDo: ToDo) {
     event.currentTarget.blur();
-    let updatedToDos = toDoArray.filter((item: ToDo) => item !== removeToDo);
-    setToDoArray(updatedToDos);
+    setToDoArray(toDoArray.filter((item: ToDo) => item !== removeToDo));
   }
 
   const toDoList = toDoArray.map((toDo: ToDo, index: number) => {
@@ -69,11 +68,11 @@ function ToDoApp() {
 
   return (
     <div>
-      <ul className="todo">{toDoList}</ul>
+      <ul>{toDoList}</ul>
       <form>
         <input
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
+          value={textInput}
+          onChange={(e) => setTextInput(e.target.value)}
           type="text"
           placeholder="Write task here..."
         />
@@ -83,7 +82,7 @@ function ToDoApp() {
           onClick={() => {
             addToDo();
           }}
-          disabled={!input}
+          disabled={!textInput}
         ></input>
       </form>
     </div>

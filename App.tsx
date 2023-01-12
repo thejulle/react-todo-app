@@ -5,16 +5,18 @@ import './style.scss';
 export default function App() {
   return (
     <div>
-      <h1>
-        To-do list. 📋
-        <br />
-        Built with React. ⚛️
-      </h1>
-      <p>
-        Probably the prettiest to-do app
-        <br />
-        you'll see whole day! 🌈
-      </p>
+      <header>
+        <h1>
+          To-do list. 📋
+          <br />
+          Built with React. ⚛️
+        </h1>
+        <p>
+          Probably the prettiest to-do app
+          <br />
+          you'll see whole day! 🌈
+        </p>
+      </header>
       <ToDoApp />
       <footer>
         <a href="https://github.com/thejulle/react-todo-app">
